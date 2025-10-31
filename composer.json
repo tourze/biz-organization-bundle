@@ -38,7 +38,7 @@
     "tourze/bundle-dependency": "1.*",
     "tourze/doctrine-helper": "0.0.*",
     "tourze/doctrine-indexed-bundle": "0.0.*",
-    "tourze/doctrine-resolve-target-entity-bundle": "0.0.*",
+    "tourze/doctrine-resolve-target-entity-bundle": "1.*",
     "tourze/doctrine-snowflake-bundle": "0.1.*",
     "tourze/doctrine-timestamp-bundle": "0.0.*",
     "tourze/easy-admin-menu-bundle": "0.1.*",
