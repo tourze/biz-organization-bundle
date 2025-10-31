@@ -1,0 +1,15 @@
+services:
+  _defaults:
+    autowire: true
+    autoconfigure: true
+    public: false
+
+  BizOrganizationBundle\Controller\:
+    resource: '../../Controller/'
+  BizOrganizationBundle\Service\:
+    resource: '../../Service/'
+    public: true
+  BizOrganizationBundle\Repository\:
+    resource: '../../Repository/'
+  BizOrganizationBundle\EventListener\:
+    resource: '../../EventListener/'

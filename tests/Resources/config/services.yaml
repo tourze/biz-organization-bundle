@@ -1,0 +1,4 @@
+services:
+  # Mock LinkGeneratorInterface for all AdminMenu services
+  Tourze\EasyAdminMenuBundle\Service\LinkGeneratorInterface:
+    class: BizOrganizationBundle\Tests\Service\MockLinkGenerator
