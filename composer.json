@@ -42,9 +42,9 @@
     "tourze/doctrine-snowflake-bundle": "1.0.*",
     "tourze/doctrine-timestamp-bundle": "1.0.*",
     "tourze/easy-admin-menu-bundle": "1.0.*",
-    "tourze/enum-extra": "1.*",
+    "tourze/enum-extra": "1.0.*",
     "tourze/lock-service-bundle": "1.0.*",
-    "tourze/symfony-dependency-service-loader": "1.*",
+    "tourze/symfony-dependency-service-loader": "1.0.*",
     "tourze/user-service-contracts": "1.*"
   },
   "require-dev": {
