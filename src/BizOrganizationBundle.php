@@ -10,6 +10,7 @@ use Symfony\Component\HttpKernel\Bundle\Bundle;
 use Tourze\BundleDependency\BundleDependencyInterface;
 use Tourze\DoctrineResolveTargetEntityBundle\DoctrineResolveTargetEntityBundle;
 use Tourze\DoctrineTimestampBundle\DoctrineTimestampBundle;
+use Tourze\EasyAdminMenuBundle\EasyAdminMenuBundle;
 
 class BizOrganizationBundle extends Bundle implements BundleDependencyInterface
 {
@@ -29,6 +30,7 @@ class BizOrganizationBundle extends Bundle implements BundleDependencyInterface
             DoctrineTimestampBundle::class => ['all' => true],
             EasyAdminBundle::class => ['all' => true],
             TwigBundle::class => ['all' => true],
+            EasyAdminMenuBundle::class => ['all' => true],
         ];
     }
 }
