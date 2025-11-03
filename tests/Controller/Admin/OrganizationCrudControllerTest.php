@@ -38,11 +38,6 @@ final class OrganizationCrudControllerTest extends AbstractEasyAdminControllerTe
 
     private OrganizationRepository $organizationRepository;
 
-    protected function onSetUp(): void
-    {
-        // 不在 setUp 中执行任何可能启动内核的操作
-    }
-
     private function setUpCustom(): void
     {
         // 使用我们的 createClientWithDatabase，但确保只创建一次
