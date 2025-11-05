@@ -55,9 +55,32 @@ final class UserOrganizationChangeLogCrudControllerTest extends AbstractEasyAdmi
         $admin = $this->createAdminUser('admin@test.com', 'password123');
         $this->loginAsAdmin($client, 'admin@test.com', 'password123');
 
+        // 创建测试数据：需要先创建组织和变动记录实体
+        $em = self::getEntityManager();
+
+        // 创建原组织
+        $orgOld = new Organization();
+        $orgOld->setName('原组织');
+        $em->persist($orgOld);
+
+        // 创建新组织
+        $orgNew = new Organization();
+        $orgNew->setName('新组织');
+        $em->persist($orgNew);
+
+        // 创建用户组织变动记录
+        $changeLog = new UserOrganizationChangeLog();
+        $changeLog->setUser($admin);
+        $changeLog->setOrganization($orgOld);
+        $changeLog->setNewOrganization($orgNew);
+        $changeLog->setContent('测试变动记录');
+        $em->persist($changeLog);
+
+        $em->flush();
+
         // 编辑操作应该被禁用，期望抛出 ForbiddenActionException
         $this->expectException(ForbiddenActionException::class);
-        $crawler = $client->request('GET', '/admin/biz-organization/user-organization-change-log/1/edit');
+        $crawler = $client->request('GET', '/admin/biz-organization/user-organization-change-log/'.$changeLog->getId().'/edit');
     }
 
     public function testListPageAccessForAuthorizedUser(): void

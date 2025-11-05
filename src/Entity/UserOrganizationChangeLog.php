@@ -2,7 +2,6 @@
 
 namespace BizOrganizationBundle\Entity;
 
-use BizOrganizationBundle\Entity\Organization;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Security\Core\User\UserInterface;
