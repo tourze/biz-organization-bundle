@@ -136,7 +136,6 @@ final class OrganizationCrudController extends AbstractCrudController
 
         yield AssociationField::new('manager', '负责人')
             ->setColumns(4)
-            ->autocomplete()
             ->formatValue($this->formatManagerValue())
         ;
 
