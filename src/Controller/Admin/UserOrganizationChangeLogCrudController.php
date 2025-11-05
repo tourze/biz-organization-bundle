@@ -68,6 +68,7 @@ final class UserOrganizationChangeLogCrudController extends AbstractCrudControll
 
         yield AssociationField::new('user', '用户')
             ->setColumns(6)
+            ->formatValue($this->formatUserValue())
         ;
 
         yield AssociationField::new('organization', '原组织')
@@ -109,5 +110,17 @@ final class UserOrganizationChangeLogCrudController extends AbstractCrudControll
                 ->onlyOnDetail()
             ;
         }
+    }
+
+    private function formatUserValue(): callable
+    {
+        return function ($value, $entity): string {
+            if (!$entity instanceof UserOrganizationChangeLog) {
+                return '-';
+            }
+            $user = $entity->getUser();
+
+            return null !== $user ? $user->getUserIdentifier() : '-';
+        };
     }
 }

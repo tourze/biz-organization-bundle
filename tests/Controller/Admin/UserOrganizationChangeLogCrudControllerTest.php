@@ -3,6 +3,7 @@
 namespace BizOrganizationBundle\Tests\Controller\Admin;
 
 use BizOrganizationBundle\Controller\Admin\UserOrganizationChangeLogCrudController;
+use BizOrganizationBundle\Entity\Organization;
 use BizOrganizationBundle\Entity\UserOrganizationChangeLog;
 use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractCrudController;
 use EasyCorp\Bundle\EasyAdminBundle\Exception\ForbiddenActionException;
@@ -99,6 +100,7 @@ final class UserOrganizationChangeLogCrudControllerTest extends AbstractEasyAdmi
      */
     public static function provideIndexPageHeaders(): iterable
     {
+        // 注意：提供数据用于验证字段配置，但实际渲染测试会被跳过（见下方测试方法）
         yield '用户' => ['用户'];
         yield '原组织' => ['原组织'];
         yield '新组织' => ['新组织'];

@@ -18,7 +18,7 @@ class UserOrganizationChangeLog
     #[ORM\Id]
     #[ORM\GeneratedValue]
     #[ORM\Column(type: Types::INTEGER, options: ['comment' => '主键ID'])]
-    private ?int $id = null;
+    private ?int $id = null; // @phpstan-ignore-line Property is assigned by Doctrine ORM
 
     #[ORM\ManyToOne(targetEntity: UserInterface::class)]
     #[ORM\JoinColumn(name: 'user_id', referencedColumnName: 'id', nullable: true, onDelete: 'SET NULL')]

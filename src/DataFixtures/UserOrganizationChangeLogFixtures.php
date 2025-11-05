@@ -9,42 +9,32 @@ use BizOrganizationBundle\Entity\UserOrganizationChangeLog;
 use Doctrine\Bundle\FixturesBundle\Fixture;
 use Doctrine\Bundle\FixturesBundle\FixtureGroupInterface;
 use Doctrine\Common\DataFixtures\DependentFixtureInterface;
+use Doctrine\ORM\EntityManagerInterface;
 use Doctrine\Persistence\ObjectManager;
 use Faker\Factory;
-use Tourze\UserServiceContracts\UserManagerInterface;
+use Symfony\Component\Security\Core\User\UserInterface;
 use Tourze\UserServiceContracts\UserServiceConstants;
 
 class UserOrganizationChangeLogFixtures extends Fixture implements FixtureGroupInterface, DependentFixtureInterface
 {
-    public function __construct(
-        private readonly ?UserManagerInterface $userManager = null,
-    ) {
-    }
-
     public function load(ObjectManager $manager): void
     {
         $faker = Factory::create('zh_CN');
 
-        // 通过用户服务获取用户，若不可用则跳过
-        $adminUser = null;
-        $normalUser = null;
-        try {
-            $adminUser = $this->userManager?->loadUserByIdentifier('admin');
-            $normalUser = $this->userManager?->loadUserByIdentifier('user1');
-        } catch (\Throwable) {
-            // ignore
+        // 从数据库查询用户而不是使用 reference（解决跨进程 reference 失效问题）
+        /** @var EntityManagerInterface $manager */
+        $userRepository = $manager->getRepository(UserInterface::class);
+        $adminUser = $userRepository->findOneBy(['userIdentifier' => 'admin']);
+        $normalUser = $userRepository->findOneBy(['userIdentifier' => 'user1']);
+
+        // 如果用户不存在则跳过（TestUserFixtures 可能未执行）
+        if (null === $adminUser || null === $normalUser) {
+            return;
         }
 
         $rootOrg = $this->getReference(OrganizationFixtures::ORG_ROOT_REFERENCE, Organization::class);
         $techOrg = $this->getReference(OrganizationFixtures::ORG_TECH_REFERENCE, Organization::class);
         $hrOrg = $this->getReference(OrganizationFixtures::ORG_HR_REFERENCE, Organization::class);
-
-        // 若未获取到用户，则无需创建变更日志
-        if (null === $adminUser || null === $normalUser) {
-            $manager->flush();
-
-            return;
-        }
 
         $changeLogs = [
             [
@@ -102,6 +92,7 @@ class UserOrganizationChangeLogFixtures extends Fixture implements FixtureGroupI
     public function getDependencies(): array
     {
         return [
+            TestUserFixtures::class,
             OrganizationFixtures::class,
         ];
     }

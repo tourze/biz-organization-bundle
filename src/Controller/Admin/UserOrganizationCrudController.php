@@ -93,7 +93,7 @@ final class UserOrganizationCrudController extends AbstractCrudController
         yield AssociationField::new('user', '用户')
             ->setRequired(true)
             ->setColumns(6)
-            ->autocomplete()
+            ->formatValue($this->formatUserValue())
             ->setHelp('选择要关联的用户')
         ;
 
@@ -267,5 +267,20 @@ document.addEventListener("DOMContentLoaded", function() {
     observer.observe(document.body, { childList: true, subtree: true });
 });
 </script>';
+    }
+
+    /**
+     * 格式化用户字段显示值
+     */
+    private function formatUserValue(): callable
+    {
+        return function ($value, $entity): string {
+            if (!$entity instanceof UserOrganization) {
+                return '-';
+            }
+            $user = $entity->getUser();
+
+            return null !== $user ? $user->getUserIdentifier() : '-';
+        };
     }
 }
