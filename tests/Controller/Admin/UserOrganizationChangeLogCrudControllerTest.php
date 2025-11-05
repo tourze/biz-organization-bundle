@@ -61,9 +61,7 @@ final class UserOrganizationChangeLogCrudControllerTest extends AbstractEasyAdmi
 
     public function testListPageAccessForAuthorizedUser(): void
     {
-        $client = self::createClientWithDatabase();
-        $admin = $this->createAdminUser('admin@test.com', 'password123');
-        $this->loginAsAdmin($client, 'admin@test.com', 'password123');
+        $client = $this->createAuthenticatedClient();
 
         $crawler = $client->request('GET', '/admin/biz-organization/user-organization-change-log');
 
