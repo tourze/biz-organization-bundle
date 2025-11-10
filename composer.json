@@ -14,7 +14,6 @@
     "doctrine/orm": "^3.0",
     "doctrine/persistence": "^4.1",
     "easycorp/easyadmin-bundle": "^4",
-    "fakerphp/faker": "^1.23",
     "knplabs/knp-menu": "^3.7",
     "nesbot/carbon": "^2.72 || ^3",
     "psr/log": "^3|^2|^1",
@@ -45,9 +44,10 @@
     "tourze/enum-extra": "1.0.*",
     "tourze/lock-service-bundle": "1.0.*",
     "tourze/symfony-dependency-service-loader": "1.0.*",
-    "tourze/user-service-contracts": "1.*"
+    "tourze/user-service-contracts": "1.1.*"
   },
   "require-dev": {
+    "fakerphp/faker": "^1.23",
     "phpstan/phpstan": "^2.1",
     "phpunit/phpunit": "^11.5",
     "tourze/phpunit-base": "1.*",
