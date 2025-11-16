@@ -1,4 +1,4 @@
-name: Static Analysis
+name: PHPStan Check
 
 on:
   push:
@@ -10,8 +10,8 @@ permissions:
   contents: read
 
 jobs:
-  static-analysis:
-    name: Static Code Analysis
+  build:
+
     runs-on: ubuntu-latest
 
     steps:
@@ -20,35 +20,22 @@ jobs:
       - name: Setup PHP
         uses: shivammathur/setup-php@v2
         with:
-          php-version: '8.3'
-          coverage: none
-          tools: composer:latest
+          php-version: "8.4"
+
+      - name: Validate composer.json and composer.lock
+        run: composer validate --strict
 
       - name: Cache Composer packages
-        uses: actions/cache@v4
+        id: composer-cache
+        uses: actions/cache@v3
         with:
           path: vendor
-          key: ${{ runner.os }}-composer-static-${{ hashFiles('**/composer.lock') }}
+          key: ${{ runner.os }}-php-${{ hashFiles('**/composer.lock') }}
           restore-keys: |
-            ${{ runner.os }}-composer-static-
-            ${{ runner.os }}-composer-
+            ${{ runner.os }}-php-
 
       - name: Install dependencies
-        run: composer install --prefer-dist --no-progress --no-interaction
+        run: composer install --prefer-dist --no-progress
 
-      - name: Run PHPStan (Level 1)
-        run: ./vendor/bin/phpstan analyse src -l 1 --ansi --memory-limit=512M
-
-      - name: Run PHPStan for Tests (Level 0)
-        run: ./vendor/bin/phpstan analyse tests -l 0 --ansi --memory-limit=512M
-        continue-on-error: true
-
-      - name: Run PHPStan with Extended Rules
-        run: |
-          ./vendor/bin/phpstan analyse src \
-            -l 1 \
-            --ansi \
-            --memory-limit=512M \
-            --no-interaction \
-            --error-format=json > phpstan-results.json 2>&1 || true
-        continue-on-error: true
+      - name: Run PHPStan
+        run: ./vendor/bin/phpstan analyse src -l 1
