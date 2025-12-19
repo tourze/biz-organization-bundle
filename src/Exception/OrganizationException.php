@@ -2,7 +2,7 @@
 
 namespace BizOrganizationBundle\Exception;
 
-class OrganizationException extends \RuntimeException
+final class OrganizationException extends \RuntimeException
 {
     public static function cannotSetSelfAsParent(): self
     {

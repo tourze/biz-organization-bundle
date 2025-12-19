@@ -12,7 +12,7 @@ use Tourze\DoctrineResolveTargetEntityBundle\DoctrineResolveTargetEntityBundle;
 use Tourze\DoctrineTimestampBundle\DoctrineTimestampBundle;
 use Tourze\EasyAdminMenuBundle\EasyAdminMenuBundle;
 
-class BizOrganizationBundle extends Bundle implements BundleDependencyInterface
+final class BizOrganizationBundle extends Bundle implements BundleDependencyInterface
 {
     public function build(ContainerBuilder $container): void
     {

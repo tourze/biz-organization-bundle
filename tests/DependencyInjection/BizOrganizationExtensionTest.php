@@ -14,15 +14,9 @@ use Tourze\PHPUnitSymfonyUnitTest\AbstractDependencyInjectionExtensionTestCase;
 #[CoversClass(BizOrganizationExtension::class)]
 final class BizOrganizationExtensionTest extends AbstractDependencyInjectionExtensionTestCase
 {
-    protected function setUp(): void
-    {
-        // 集成测试不需要额外的设置
-    }
-
     private function getContainer(): ContainerInterface
     {
-        /** @phpstan-ignore-next-line */
-        $container = $this->createStub(ContainerInterface::class);
+        $container = $this->createMock(ContainerInterface::class);
 
         $container->method('has')
             ->willReturnCallback(fn (string $id): bool => 'property_accessor' === $id)

@@ -13,7 +13,7 @@ use Tourze\EasyAdminMenuBundle\Service\MenuProviderInterface;
 
 #[Autoconfigure(public: true)]
 #[AutoconfigureTag(name: 'easy-admin-menu.provider')]
-readonly class AdminMenu implements MenuProviderInterface
+final readonly class AdminMenu implements MenuProviderInterface
 {
     public function __construct(
         private ?LinkGeneratorInterface $linkGenerator = null,

@@ -1,15 +1,17 @@
 services:
+  # default configuration for services in *this* file
   _defaults:
-    autowire: true
-    autoconfigure: true
+    autowire: true      # Automatically injects dependencies in your services.
+    autoconfigure: true # Automatically registers your services as commands, event subscribers, etc.
     public: false
 
   BizOrganizationBundle\Controller\:
     resource: '../../Controller/'
+  BizOrganizationBundle\Repository\:
+    resource: '../../Repository/'
   BizOrganizationBundle\Service\:
     resource: '../../Service/'
     public: true
-  BizOrganizationBundle\Repository\:
-    resource: '../../Repository/'
   BizOrganizationBundle\EventListener\:
     resource: '../../EventListener/'
+    public: true

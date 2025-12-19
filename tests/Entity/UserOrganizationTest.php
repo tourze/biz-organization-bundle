@@ -44,8 +44,7 @@ final class UserOrganizationTest extends AbstractEntityTestCase
         $userOrganization = new UserOrganization();
 
         // 创建测试用户实现
-        /** @phpstan-ignore-next-line staticMethod.dynamicCall */
-        $user = $this->createStub(UserInterface::class);
+        $user = $this->createMock(UserInterface::class);
         $user->method('getRoles')->willReturn(['ROLE_USER']);
         $user->method('getUserIdentifier')->willReturn('test@example.com');
 
@@ -68,8 +67,7 @@ final class UserOrganizationTest extends AbstractEntityTestCase
         $userOrganization = new UserOrganization();
 
         // 创建测试用户实现
-        /** @phpstan-ignore-next-line staticMethod.dynamicCall */
-        $user = $this->createStub(UserInterface::class);
+        $user = $this->createMock(UserInterface::class);
         $user->method('getRoles')->willReturn(['ROLE_USER']);
         $user->method('getUserIdentifier')->willReturn('testuser');
 

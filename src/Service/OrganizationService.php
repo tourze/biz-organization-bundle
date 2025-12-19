@@ -10,7 +10,7 @@ use Symfony\Component\DependencyInjection\Attribute\Autoconfigure;
 use Symfony\Component\Security\Core\User\UserInterface;
 
 #[Autoconfigure(public: true)]
-readonly class OrganizationService
+final readonly class OrganizationService
 {
     public function __construct(
         private EntityManagerInterface $entityManager,

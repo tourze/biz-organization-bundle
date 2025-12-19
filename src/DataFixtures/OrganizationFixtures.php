@@ -10,7 +10,7 @@ use Doctrine\Bundle\FixturesBundle\FixtureGroupInterface;
 use Doctrine\Persistence\ObjectManager;
 use Faker\Factory;
 
-class OrganizationFixtures extends Fixture implements FixtureGroupInterface
+final class OrganizationFixtures extends Fixture implements FixtureGroupInterface
 {
     public const ORG_ROOT_REFERENCE = 'org-root';
     public const ORG_TECH_REFERENCE = 'org-tech';

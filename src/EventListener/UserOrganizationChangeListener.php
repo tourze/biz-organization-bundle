@@ -16,7 +16,7 @@ use Doctrine\ORM\Events;
 #[AsEntityListener(event: Events::preUpdate, method: 'preUpdate', entity: UserOrganization::class)]
 #[AsEntityListener(event: Events::postUpdate, method: 'postUpdate', entity: UserOrganization::class)]
 #[AsEntityListener(event: Events::postRemove, method: 'postRemove', entity: UserOrganization::class)]
-class UserOrganizationChangeListener
+final class UserOrganizationChangeListener
 {
     /** @var array<string, mixed> */
     private array $changeSet = [];

@@ -14,7 +14,7 @@ use Doctrine\Persistence\ObjectManager;
 use Symfony\Component\Security\Core\User\UserInterface;
 use Tourze\UserServiceContracts\UserServiceConstants;
 
-class UserOrganizationFixtures extends Fixture implements FixtureGroupInterface, DependentFixtureInterface
+final class UserOrganizationFixtures extends Fixture implements FixtureGroupInterface, DependentFixtureInterface
 {
     public const USER_ORG_REFERENCE_PREFIX = 'user_org_';
 

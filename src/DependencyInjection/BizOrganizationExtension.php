@@ -4,7 +4,7 @@ namespace BizOrganizationBundle\DependencyInjection;
 
 use Tourze\SymfonyDependencyServiceLoader\AutoExtension;
 
-class BizOrganizationExtension extends AutoExtension
+final class BizOrganizationExtension extends AutoExtension
 {
     protected function getConfigDir(): string
     {

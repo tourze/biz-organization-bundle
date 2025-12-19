@@ -15,7 +15,7 @@ use Faker\Factory;
 use Symfony\Component\Security\Core\User\UserInterface;
 use Tourze\UserServiceContracts\UserServiceConstants;
 
-class UserOrganizationChangeLogFixtures extends Fixture implements FixtureGroupInterface, DependentFixtureInterface
+final class UserOrganizationChangeLogFixtures extends Fixture implements FixtureGroupInterface, DependentFixtureInterface
 {
     public function load(ObjectManager $manager): void
     {

@@ -80,7 +80,7 @@ final class UserOrganizationChangeLogCrudControllerTest extends AbstractEasyAdmi
 
         // 编辑操作应该被禁用，期望抛出 ForbiddenActionException
         $this->expectException(ForbiddenActionException::class);
-        $crawler = $client->request('GET', '/admin/biz-organization/user-organization-change-log/'.$changeLog->getId().'/edit');
+        $crawler = $client->request('GET', '/admin/biz-organization/user-organization-change-log/' . $changeLog->getId() . '/edit');
     }
 
     public function testListPageAccessForAuthorizedUser(): void

@@ -16,7 +16,7 @@ use Tourze\UserServiceContracts\UserServiceConstants;
  * 为 biz-organization-bundle 的测试提供必要的用户实体
  * 用于解决 UserOrganizationFixtures 和 UserOrganizationChangeLogFixtures 的依赖问题
  */
-class TestUserFixtures extends Fixture implements FixtureGroupInterface
+final class TestUserFixtures extends Fixture implements FixtureGroupInterface
 {
     public const ADMIN_USER_REFERENCE = 'admin-user';
     public const NORMAL_USER_REFERENCE = 'normal-user';

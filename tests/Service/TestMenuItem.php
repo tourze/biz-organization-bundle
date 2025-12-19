@@ -43,7 +43,6 @@ class TestMenuItem implements ItemInterface
         return $this;
     }
 
-    /** @phpstan-ignore symplify.noReturnSetterMethod */
     public function setUri(?string $uri): ItemInterface
     {
         $this->uri = $uri;
@@ -51,7 +50,6 @@ class TestMenuItem implements ItemInterface
         return $this;
     }
 
-    /** @phpstan-ignore symplify.noReturnSetterMethod */
     public function setAttribute(string $name, $value): ItemInterface
     {
         if (is_bool($value) || is_string($value) || null === $value) {
@@ -86,7 +84,6 @@ class TestMenuItem implements ItemInterface
         return $this->name;
     }
 
-    /** @phpstan-ignore symplify.noReturnSetterMethod */
     public function setName(string $name): ItemInterface
     {
         $this->name = $name;
@@ -99,7 +96,6 @@ class TestMenuItem implements ItemInterface
         return $this->label ?? $this->name;
     }
 
-    /** @phpstan-ignore symplify.noReturnSetterMethod */
     public function setLabel(?string $label): ItemInterface
     {
         $this->label = $label;
@@ -115,7 +111,6 @@ class TestMenuItem implements ItemInterface
         return $this->attributes;
     }
 
-    /** @phpstan-ignore symplify.noReturnSetterMethod */
     public function setAttributes(array $attributes): ItemInterface
     {
         /** @var array<string, bool|string|null> $attributes */
@@ -134,7 +129,6 @@ class TestMenuItem implements ItemInterface
         return [];
     }
 
-    /** @phpstan-ignore symplify.noReturnSetterMethod */
     public function setLinkAttributes(array $linkAttributes): ItemInterface
     {
         return $this;
@@ -145,7 +139,6 @@ class TestMenuItem implements ItemInterface
         return $default;
     }
 
-    /** @phpstan-ignore symplify.noReturnSetterMethod */
     public function setLinkAttribute(string $name, $value): ItemInterface
     {
         return $this;
@@ -156,7 +149,6 @@ class TestMenuItem implements ItemInterface
         return [];
     }
 
-    /** @phpstan-ignore symplify.noReturnSetterMethod */
     public function setChildrenAttributes(array $childrenAttributes): ItemInterface
     {
         return $this;
@@ -167,7 +159,6 @@ class TestMenuItem implements ItemInterface
         return $default;
     }
 
-    /** @phpstan-ignore symplify.noReturnSetterMethod */
     public function setChildrenAttribute(string $name, $value): ItemInterface
     {
         return $this;
@@ -178,7 +169,6 @@ class TestMenuItem implements ItemInterface
         return [];
     }
 
-    /** @phpstan-ignore symplify.noReturnSetterMethod */
     public function setLabelAttributes(array $labelAttributes): ItemInterface
     {
         return $this;
@@ -189,7 +179,6 @@ class TestMenuItem implements ItemInterface
         return $default;
     }
 
-    /** @phpstan-ignore symplify.noReturnSetterMethod */
     public function setLabelAttribute(string $name, $value): ItemInterface
     {
         return $this;
@@ -200,7 +189,6 @@ class TestMenuItem implements ItemInterface
         return [];
     }
 
-    /** @phpstan-ignore symplify.noReturnSetterMethod */
     public function setExtras(array $extras): ItemInterface
     {
         return $this;
@@ -211,7 +199,6 @@ class TestMenuItem implements ItemInterface
         return $default;
     }
 
-    /** @phpstan-ignore symplify.noReturnSetterMethod */
     public function setExtra(string $name, $value): ItemInterface
     {
         return $this;
@@ -222,7 +209,6 @@ class TestMenuItem implements ItemInterface
         return true;
     }
 
-    /** @phpstan-ignore symplify.noReturnSetterMethod */
     public function setDisplayChildren(bool $bool): ItemInterface
     {
         return $this;
@@ -233,13 +219,11 @@ class TestMenuItem implements ItemInterface
         return true;
     }
 
-    /** @phpstan-ignore symplify.noReturnSetterMethod */
     public function setDisplay(bool $bool): ItemInterface
     {
         return $this;
     }
 
-    /** @phpstan-ignore symplify.noReturnSetterMethod */
     public function removeChild($name): ItemInterface
     {
         if (is_string($name) || $name instanceof ItemInterface) {
@@ -255,7 +239,6 @@ class TestMenuItem implements ItemInterface
         return $this->children;
     }
 
-    /** @phpstan-ignore symplify.noReturnSetterMethod */
     public function setChildren(array $children): ItemInterface
     {
         /** @var array<string, ItemInterface> $children */
@@ -269,7 +252,6 @@ class TestMenuItem implements ItemInterface
         return count($this->children) > 0;
     }
 
-    /** @phpstan-ignore symplify.noReturnSetterMethod */
     public function setCurrent(?bool $bool): ItemInterface
     {
         return $this;
@@ -305,7 +287,6 @@ class TestMenuItem implements ItemInterface
         return null;
     }
 
-    /** @phpstan-ignore symplify.noReturnSetterMethod */
     public function setParent(?ItemInterface $parent = null): ItemInterface
     {
         return $this;
@@ -384,13 +365,11 @@ class TestMenuItem implements ItemInterface
         return true;
     }
 
-    /** @phpstan-ignore symplify.noReturnSetterMethod */
     public function reorderChildren(array $order): ItemInterface
     {
         return $this;
     }
 
-    /** @phpstan-ignore symplify.noReturnSetterMethod */
     public function setFactory(mixed $factory): ItemInterface
     {
         return $this;
